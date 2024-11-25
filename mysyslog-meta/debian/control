@@ -1,0 +1,12 @@
+   Source: mysyslog-meta
+   Section: metapackages
+   Priority: optional
+   Maintainer: Ваше Имя <ваш.email@example.com>
+   Build-Depends: debhelper (>= 9)
+   Standards-Version: 4.1.4
+
+   Package: mysyslog-meta
+   Architecture: all
+   Depends: libmysyslog-json, libmysyslog-text, libmysyslog
+   Description: Meta package for mysyslog libraries
+    This package depends on all the mysyslog libraries.
