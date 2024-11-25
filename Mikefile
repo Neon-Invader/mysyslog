@@ -1,0 +1,31 @@
+# Общий Makefile для сборки всех подпроектов в репозитории mysyslog
+
+# Переменные для путей к подпроектам
+SUBDIRS = libmysyslog-json libmysyslog-text libmysyslog mysyslog-client mysyslog-daemon
+
+# Цель по умолчанию
+all: $(SUBDIRS)
+
+# Сборка всех подпроектов
+$(SUBDIRS):
+	$(MAKE) -C $@
+
+# Очистка всех подпроектов
+clean:
+	@for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir clean; \
+	done
+
+# Установка всех подпроектов
+install:
+	@for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir install; \
+	done
+
+# Удаление всех собранных файлов и библиотек по всем подпроектам
+distclean: clean
+	@for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir distclean; \
+	done
+
+.PHONY: all clean install distclean $(SUBDIRS)
