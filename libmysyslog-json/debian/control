@@ -1,0 +1,13 @@
+   Source: libmysyslog-json
+   Section: libs
+   Priority: optional
+   Maintainer: Ваше Имя <ваш.email@example.com>
+   Build-Depends: debhelper (>= 9)
+   Standards-Version: 4.1.4
+   Homepage: https://example.com
+
+   Package: libmysyslog-json
+   Architecture: any
+   Depends: ${shlibs:Depends}, ${misc:Depends}
+   Description: JSON logging library for mysyslog
+    This library provides functionality to handle JSON log messages.
