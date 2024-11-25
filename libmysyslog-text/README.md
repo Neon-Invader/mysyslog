@@ -1,5 +1,3 @@
-### 2. `libmysyslog-text/README.md`
-```markdown
 # libmysyslog-text
 
 ## Описание
