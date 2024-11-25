@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <dlfcn.h>
+
+int main() 
+{
+    void* handle;
+    int (*func)(int);
+    char* error;
+
+    handle = dlopen("libmylib.so", RTLD_LAZY);
+    if (!handle) 
+    {
+        fprintf(stderr, "%s\n", dlerror());
+        return 1;
+    }
+
+    *(void**)(&func) = dlsym(handle, "myFunction");
+    if ((error = dlerror()) != NULL) 
+    {
+        fprintf(stderr, "%s\n", error);
+        return 1;
+    }
+
+    printf("Result: %d\n", func(5));
+    dlclose(handle);
+    return 0;
+}
